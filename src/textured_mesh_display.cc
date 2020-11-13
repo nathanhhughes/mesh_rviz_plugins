@@ -58,8 +58,6 @@ TexturedMeshDisplay::TexturedMeshDisplay()
           "Preferred method of sending images.", this, SLOT(updateTopic()))),
       polygon_mode_prop_("Polygon Mode", "", "Polygon rendering mode.", this,
                          SLOT(updatePolygonMode())),
-      point_size_prop_("Point Size", 1, "Set vertex size.", this,
-                       SLOT(updatePointSize())),
       shader_program_prop_("Shader Program", "", "Shader program for mesh.",
                            this, SLOT(updateShaderProgram())),
       phong_shading_prop_("Phong Shading", true, "Use Phong Shading.", this,
@@ -71,6 +69,8 @@ TexturedMeshDisplay::TexturedMeshDisplay()
                          SLOT(updateShowNormals())),
       normal_size_prop_("Normal Size", 0.05f, "Size of normal vector lines.",
                         this, SLOT(updateNormalSize())),
+      point_size_prop_("Point Size", 1, "Set vertex size.", this,
+                       SLOT(updatePointSize())),
       queue_size_prop_("Queue Size", 25,
                        "Advanced: set the size of the incoming message queue.  "
                        "Increasing this "

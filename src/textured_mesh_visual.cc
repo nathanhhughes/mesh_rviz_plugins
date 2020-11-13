@@ -54,10 +54,10 @@ TexturedMeshVisual::TexturedMeshVisual(Ogre::SceneManager* scene_manager,
       tex_name_("textured_mesh_mesh_texture"),
       mode_(poly_mode),
       mesh_visibility_(true),
-      shader_program_(shader_program),
       scene_color_scale_(1.0f),
       point_size_(1u),
       phong_shading_(true),
+      shader_program_(shader_program),
       vtx_shader_(),
       texture_shader_(),
       idepth_shader_(),
@@ -304,7 +304,7 @@ void TexturedMeshVisual::createMesh(
   Ogre::VertexDeclaration* vtx_dec = mesh_->sharedVertexData->vertexDeclaration;
 
   // Loop through point fields and add vertex elements.
-  int field_idx = 0;
+  size_t field_idx = 0;
   while (field_idx < fields.size()) {
     std::string name = fields[field_idx].name;
 
@@ -385,7 +385,7 @@ void TexturedMeshVisual::updateIndexBuffer(
       idx_buffer->lock(Ogre::HardwareBuffer::HBL_NORMAL));
 
   // Copy index data.
-  for (int ii = 0; ii < indices.size(); ++ii) {
+  for (size_t ii = 0; ii < indices.size(); ++ii) {
     idx_data[3 * ii] = indices[ii].vertices[0];
     idx_data[3 * ii + 1] = indices[ii].vertices[1];
     idx_data[3 * ii + 2] = indices[ii].vertices[2];

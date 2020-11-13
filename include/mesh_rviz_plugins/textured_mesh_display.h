@@ -151,7 +151,7 @@ class TexturedMeshDisplay : public rviz::Display {
   rviz::IntProperty point_size_prop_;
   rviz::IntProperty queue_size_prop_;
 
-  int queue_size_;
+  size_t queue_size_;
   std::set<std::string> transport_plugin_types_;
 
   std::recursive_mutex mtx_;

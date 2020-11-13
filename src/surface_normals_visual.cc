@@ -64,7 +64,7 @@ void SurfaceNormalsVisual::setFromMessage(const pcl_msgs::PolygonMesh& msg) {
   // Grab offset of position and normals in buffer.
   int pos_offset = 0;
   int normal_offset = 0;
-  for (int ii = 0; ii < msg.cloud.fields.size(); ++ii) {
+  for (size_t ii = 0; ii < msg.cloud.fields.size(); ++ii) {
     std::string name = msg.cloud.fields[ii].name;
     if (name == "x") {
       // Assume next two fields are yz.
@@ -78,8 +78,8 @@ void SurfaceNormalsVisual::setFromMessage(const pcl_msgs::PolygonMesh& msg) {
   // Walk over vertices and draw.
   mobject_->beginUpdate(0);
 
-  for (int ii = 0; ii < msg.cloud.height; ++ii) {
-    for (int jj = 0; jj < msg.cloud.width; ++jj) {
+  for (uint32_t ii = 0; ii < msg.cloud.height; ++ii) {
+    for (uint32_t jj = 0; jj < msg.cloud.width; ++jj) {
       // Grab position.
       float xyz[3];
       int poffset = ii*msg.cloud.row_step + jj*msg.cloud.point_step + pos_offset;
